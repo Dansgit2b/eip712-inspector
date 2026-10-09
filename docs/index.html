@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EIP-712 Inspector: decode, hash & verify typed-data signatures · Lumen Works</title>
+<meta name="description" content="Paste EIP-712 typed data (eth_signTypedData_v4) to see what you're signing: risk flags for Permit/Permit2/Seaport, domain & struct hashes, digest, and signer recovery. Runs in your browser.">
+<link rel="stylesheet" href="style.css"></head><body>
+<h1>EIP-712 Inspector</h1>
+<p>Paste the JSON from an <code>eth_signTypedData_v4</code> request and see <b>what it actually authorises</b>. It flags token Permits, Permit2 and Seaport/NFT listings, unlimited amounts, far-off deadlines and chain mismatches. It also computes the domain separator, struct hash and final digest, and recovers the signer when you add a signature. Everything runs in your browser.</p>
+<textarea id="td" placeholder='{"types":{...},"primaryType":"Permit","domain":{...},"message":{...}}'></textarea>
+<p>Signature (optional): <input id="sig" placeholder="0x… 65-byte signature"> Expected signer (optional): <input id="exp" style="width:30%" placeholder="0x…"></p>
+<p>Wallet's current chainId (optional): <input id="cid" style="width:10%" placeholder="8453"></p>
+<button onclick="run()">Inspect</button><button class="alt" onclick="sample()">Load Permit sample</button><button class="alt" onclick="exportReport()">Export report (Pro)</button>
+<div id="flags"></div><pre id="out"></pre>
+<div id="pro"></div>
+<footer>Lumen Works tools: <a href="https://dansgit2b.github.io/x402-inspector/">x402 Inspector</a> · <a href="https://dansgit2b.github.io/eip712-inspector/">EIP-712 Inspector</a> · <a href="https://dansgit2b.github.io/calldata-decoder/">Calldata Decoder</a> · <a href="https://dansgit2b.github.io/lumen-tab/">Lumen Tab</a> (Arc micropayment tabs)</footer>
+<p style="opacity:.6">MIT · <a href="https://github.com/Dansgit2b/eip712-inspector">source</a> · Not a security guarantee; when in doubt, don't sign.</p>
+<script src="viem.min.js"></script><script src="lw-pay.js"></script><script src="app.js"></script></body></html>
